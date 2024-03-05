@@ -41,6 +41,7 @@ class AuthModelView extends ChangeNotifier {
      String? _fName;
      String? _lName;
      String? _userId;
+     String? _verifyEmailToken;
 
 
      //getter
@@ -55,6 +56,7 @@ class AuthModelView extends ChangeNotifier {
      String? get fName => _fName;
      String? get lName => _lName;
      String? get id=>_userId;
+     String? get verifyEmailToken => _verifyEmailToken;
 
    
    //
@@ -218,6 +220,7 @@ notifyListeners();
 }
 
 
+
 // GET TOKEN
 Future getToken(
 String email,
@@ -250,6 +253,8 @@ BuildContext context
         textColor: Colors.white,
         fontSize: 16.0
       );
+    _verifyEmailToken = result.data?.token;
+
        Navigator.of(context).push(MaterialPageRoute(
           builder: (context) =>  VerifyPinScreen(email: email,)));
 } 

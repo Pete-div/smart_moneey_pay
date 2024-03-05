@@ -23,9 +23,10 @@ class _VerifyPinScreenState extends ConsumerState<VerifyPinScreen> {
 
    @override
   void initState() {
+    final token =ref.read(authViewModel);
     // TODO: implement initState
     super.initState();
-    codeController = TextEditingController();
+    codeController = TextEditingController(text:token.verifyEmailToken );
     codeController.addListener(() {
       final isActiveButton = codeController.text.isNotEmpty;
       this.isActiveButton = isActiveButton;
